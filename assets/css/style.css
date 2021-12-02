@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: gray;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1em;
+}
+
+form {
+  text-align: center;
+  margin-top: 2em;
+}
+
+/*# sourceMappingURL=style.css.map */
