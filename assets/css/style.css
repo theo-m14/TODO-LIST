@@ -18,5 +18,13 @@ form {
   text-align: center;
   margin-top: 2em;
 }
+form div {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin: 1em 0;
+}
 
 /*# sourceMappingURL=style.css.map */
