@@ -26,5 +26,9 @@ form div {
   gap: 1em;
   margin: 1em 0;
 }
+form .done p {
+  text-decoration: line-through;
+  font-style: italic;
+}
 
 /*# sourceMappingURL=style.css.map */

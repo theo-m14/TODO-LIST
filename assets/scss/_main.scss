@@ -14,4 +14,9 @@ form {
     gap: 1em;
     margin: 1em 0;
   }
+  .done p {
+    //On change le style de la tache si elle est faites
+    text-decoration: line-through;
+    font-style: italic;
+  }
 }
