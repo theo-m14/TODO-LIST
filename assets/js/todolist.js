@@ -32,12 +32,11 @@ function displayTask(task){
 
 function checkTaskStatut(checkbox){
     if(checkbox.checked){
-        console.log("coché !");
-        console.log(checkbox.parentElement.id);//recupération d'id du parent
+        tabTask[checkbox.parentElement.id.substring(5,6)].done = true; //On met à jour l'objet tache lié en recupérant l'id du parent, puis en découpant cet id pour n'avoir que l'index de l'objet
         document.getElementById(checkbox.parentElement.id).classList.add("done");
     }
     else{
-        console.log("pas coché !");
+        tabTask[checkbox.parentElement.id.substring(5,6)].done = false;
         document.getElementById(checkbox.parentElement.id).classList.remove("done");
     }
 }
