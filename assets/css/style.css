@@ -9,6 +9,23 @@ body {
   background-color: gray;
 }
 
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("../fonts/PermanentMarker-Regular.ttf");
+}
+@font-face {
+  font-family: "Anaheim";
+  src: url("../fonts/Anaheim-Regular.ttf");
+}
+h1,
+h2 {
+  font-family: "Permanent Marker";
+}
+
+p {
+  font-family: "Anaheim";
+}
+
 h1 {
   text-align: center;
   margin-top: 1em;
@@ -20,15 +37,42 @@ form {
 }
 form div {
   display: flex;
-  margin: auto;
-  justify-content: center;
+  margin: 1em 30%;
+  justify-content: flex-start;
   align-items: center;
   gap: 1em;
-  margin: 1em 0;
+  width: 50%;
 }
 form .done p {
   text-decoration: line-through;
   font-style: italic;
+}
+form label {
+  font-family: "Anaheim";
+}
+form #sendTask {
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "Anaheim";
+  font-weight: bold;
+}
+form #newTask {
+  font-family: "Anaheim";
+}
+
+#btnClearAll {
+  background-color: black;
+  color: white;
+  padding: 1em;
+  border-radius: 1em;
+  margin-left: 20%;
+  border: black 2px solid;
+  box-shadow: black 4px 4px 8px;
+  font-family: "Permanent Marker";
+}
+#btnClearAll:hover {
+  background-color: #2c2c2c;
+  box-shadow: black 3px 3px 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

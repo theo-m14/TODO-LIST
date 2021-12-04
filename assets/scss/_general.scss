@@ -8,3 +8,22 @@
 body {
   background-color: gray;
 }
+
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("../fonts/PermanentMarker-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Anaheim";
+  src: url("../fonts/Anaheim-Regular.ttf");
+}
+
+h1,
+h2 {
+  font-family: "Permanent Marker";
+}
+
+p {
+  font-family: "Anaheim";
+}

@@ -8,15 +8,43 @@ form {
   margin-top: 2em;
   div {
     display: flex;
-    margin: auto;
-    justify-content: center;
+    margin: 1em 30%;
+    justify-content: flex-start;
     align-items: center;
     gap: 1em;
-    margin: 1em 0;
+    width: 50%;
   }
   .done p {
     //On change le style de la tache si elle est faites
     text-decoration: line-through;
     font-style: italic;
+  }
+  label {
+    font-family: "Anaheim";
+  }
+  #sendTask {
+    padding: 5px;
+    border-radius: 5px;
+    font-family: "Anaheim";
+    font-weight: bold;
+  }
+  #newTask {
+    font-family: "Anaheim";
+  }
+}
+
+//Stylisation du bouton Clear All Task
+#btnClearAll {
+  background-color: black;
+  color: white;
+  padding: 1em;
+  border-radius: 1em;
+  margin-left: 20%;
+  border: black 2px solid;
+  box-shadow: black 4px 4px 8px;
+  font-family: "Permanent Marker";
+  &:hover {
+    background-color: rgb(44, 44, 44);
+    box-shadow: black 3px 3px 5px;
   }
 }
