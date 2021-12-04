@@ -1,6 +1,6 @@
 h1 {
   text-align: center;
-  margin-top: 1em;
+  margin: 1em 0;
 }
 
 form {
@@ -11,10 +11,10 @@ form {
     margin: 1em 30%;
     justify-content: flex-start;
     align-items: center;
-    gap: 1em;
+    gap: 1.5em;
     width: 50%;
   }
-  .done p {
+  .done p:not(.deleteTask) {
     //On change le style de la tache si elle est faites
     text-decoration: line-through;
     font-style: italic;
@@ -39,7 +39,7 @@ form {
   color: white;
   padding: 1em;
   border-radius: 1em;
-  margin-left: 20%;
+  margin: 1em 0 1em 20%;
   border: black 2px solid;
   box-shadow: black 4px 4px 8px;
   font-family: "Permanent Marker";
@@ -49,5 +49,15 @@ form {
   }
 }
 
-#arrow {
+//Button suppression de tâche
+.deleteTask {
+  color: red;
+  border: black 1px solid;
+  border-radius: 5px;
+  padding: 1px 3px;
+  background-color: rgb(36, 36, 36);
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
 }

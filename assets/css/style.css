@@ -28,7 +28,7 @@ p {
 
 h1 {
   text-align: center;
-  margin-top: 1em;
+  margin: 1em 0;
 }
 
 form {
@@ -40,10 +40,10 @@ form div {
   margin: 1em 30%;
   justify-content: flex-start;
   align-items: center;
-  gap: 1em;
+  gap: 1.5em;
   width: 50%;
 }
-form .done p {
+form .done p:not(.deleteTask) {
   text-decoration: line-through;
   font-style: italic;
 }
@@ -65,7 +65,7 @@ form #newTask {
   color: white;
   padding: 1em;
   border-radius: 1em;
-  margin-left: 20%;
+  margin: 1em 0 1em 20%;
   border: black 2px solid;
   box-shadow: black 4px 4px 8px;
   font-family: "Permanent Marker";
@@ -73,6 +73,18 @@ form #newTask {
 #btnClearAll:hover {
   background-color: #2c2c2c;
   box-shadow: black 3px 3px 5px;
+}
+
+.deleteTask {
+  color: red;
+  border: black 1px solid;
+  border-radius: 5px;
+  padding: 1px 3px;
+  background-color: #242424;
+  font-weight: bold;
+}
+.deleteTask:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

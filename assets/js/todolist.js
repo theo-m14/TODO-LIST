@@ -33,6 +33,7 @@ document.getElementById("sendTask").addEventListener("click", function(event){
     tabTask.push(new task(taskDesc,false));//On ajoute la nouvelle tache dans le tableau de stockage
     displayNewTask(tabTask[tabTask.length-1]);//On affiche le dernier élément crée avec la fonction displayTask
     registerTask(tabTask[tabTask.length-1]);
+    updateListenerDeleteBtn(); //On met ensuite à jour l'écoute des "deleteBtn" de chaque tâche
 });
 
 
@@ -45,9 +46,9 @@ function displayNewTask(task){
     //On gère ici le cas où la tache est déjà complété
     if(task.done==true){
         newTask.classList.add("done"); //On ajoute la class done à la div correspondante
-        newTask.innerHTML = '<input type="checkbox" name="checkbox-'+ tabTask.indexOf(task) +'" onchange="checkTaskStatut(this)" checked><p>'+ task.description + '</p>'; //Puis on ajoute une checkbox checked et la description de la tache dans la div
+        newTask.innerHTML = '<input type="checkbox" name="checkbox-'+ tabTask.indexOf(task) +'" onchange="checkTaskStatut(this)" checked><p>'+ task.description + '</p> <p class="deleteTask">X</p>'; //Puis on ajoute une checkbox checked,de la description de la tache dans la div et du bouton de suppression
     }else{
-        newTask.innerHTML = '<input type="checkbox" name="checkbox-'+ tabTask.indexOf(task) +'" onchange="checkTaskStatut(this)"><p>'+ task.description + '</p>'; //Puis on ajoute une checkbox et la description de la tache dans la div
+        newTask.innerHTML = '<input type="checkbox" name="checkbox-'+ tabTask.indexOf(task) +'" onchange="checkTaskStatut(this)"><p>'+ task.description + '</p> <p class="deleteTask">X</p>'; //Puis on ajoute une checkbox et la description de la tache dans la div
     }
     
     
@@ -73,10 +74,31 @@ function checkTaskStatut(checkbox){
     }
 }
 
+//Ecoute du bouton de suppression de tâche
+//Fonction qui met à jour le Listener sur les tâches crées
+function updateListenerDeleteBtn(){
+    //On récupère l'ensemble des boutons de suppression
+    let getAllBtnDelete = document.querySelectorAll(".deleteTask");
+    //On ajoute une eventListener à tous les boutons
+    getAllBtnDelete.forEach(supprBtn => { 
+        supprBtn.addEventListener("click", function(){
+            //On stock la div parent du bouton
+            let divParent = document.getElementById(supprBtn.parentElement.id);
+            //On supprime la div du html
+            divParent.remove();
+            //Supprimé l'élément du local storage
+            localStorage.removeItem(tabTask[divParent.id.substring(5,6)].description);
+            //On supprime l'élément du tableau
+            tabTask.splice(tabTask[divParent.id.substring(5,6)],1); //Le substring permet de récupérer l'emplacement de l'élément dans le tableau
+    })
+});
+}
+
 //Ecoute du bouton Clear All Task
 document.getElementById("btnClearAll").addEventListener("click", function(e){
     //on applique un clear Local Storage
     localStorage.clear();
+    //Puis le lien recharge la page avec un localStorage vide
 });
 
 //Toutes les fonctions liées au local storage
