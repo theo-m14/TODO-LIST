@@ -73,6 +73,11 @@ function checkTaskStatut(checkbox){
     }
 }
 
+//Ecoute du bouton Clear All Task
+document.getElementById("btnClearAll").addEventListener("click", function(e){
+    //on applique un clear Local Storage
+    localStorage.clear();
+});
 
 //Toutes les fonctions liées au local storage
 
