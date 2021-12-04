@@ -21,13 +21,13 @@ form {
   }
   label {
     font-family: "Anaheim";
-  }
+  } //bouton d'envois
   #sendTask {
     padding: 5px;
     border-radius: 5px;
     font-family: "Anaheim";
     font-weight: bold;
-  }
+  } //input font
   #newTask {
     font-family: "Anaheim";
   }
@@ -47,4 +47,7 @@ form {
     background-color: rgb(44, 44, 44);
     box-shadow: black 3px 3px 5px;
   }
+}
+
+#arrow {
 }
