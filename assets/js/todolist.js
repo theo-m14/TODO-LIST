@@ -49,7 +49,7 @@ function displayNewTask(task){
     }else{
         newTask.innerHTML = '<input type="checkbox" name="checkbox-'+ tabTask.indexOf(task) +'" onchange="checkTaskStatut(this)"><p>'+ task.description + '</p> <p class="deleteTask">X</p>'; //Puis on ajoute une checkbox et la description de la tache dans la div
     }
-    updateListenerDeleteBtn(); //On met ensuite à jour l'écoute des "deleteBtn" de chaque tâche
+    updateListenerDeleteBtn(newTask); //On met ensuite à jour l'écoute des "deleteBtn" de chaque tâche
     
 }
 
@@ -73,23 +73,19 @@ function checkTaskStatut(checkbox){
     }
 }
 
-//Ecoute du bouton de suppression de tâche
-//Fonction qui met à jour le Listener sur les tâches crées
-function updateListenerDeleteBtn(){
-    //On récupère l'ensemble des boutons de suppression
-    let getAllBtnDelete = document.querySelectorAll(".deleteTask");
-    //On ajoute une eventListener à tous les boutons
-    getAllBtnDelete.forEach(supprBtn => { 
-        supprBtn.addEventListener("click", function(){
-            //On stock la div parent du bouton
-            let divParent = document.getElementById(supprBtn.parentElement.id);
-            //On supprime la div du html
-            divParent.remove();
+//Fonction qui met à jour le Listener sur le bouton de suppression sur les tâches crées
+function updateListenerDeleteBtn(taskDiv){
+    //On récupère le delete bouton lié à la tâche
+    let supprBtn = document.querySelector("#"+ taskDiv.id +" .deleteTask");
+    //console.log(taskDiv);
+    //On ajoute une eventListener au bouton lié à la tâche
+        supprBtn.addEventListener("click", function(e){
             //Supprimé l'élément du local storage
-            localStorage.removeItem(tabTask[divParent.id.substring(5,6)].description);
+            localStorage.removeItem(tabTask[taskDiv.id.substring(5,6)].description);
             //On supprime l'élément du tableau
-            tabTask.splice(tabTask[divParent.id.substring(5,6)],1); //Le substring permet de récupérer l'emplacement de l'élément dans le tableau
-    })
+            //tabTask.splice(tabTask[taskDiv.id.substring(5,6)],1); //Le substring permet de récupérer l'emplacement de l'élément dans le tableau
+            //on supprime l'élement du html
+            taskDiv.remove();
 });
 }
 
