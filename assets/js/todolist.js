@@ -33,7 +33,6 @@ document.getElementById("sendTask").addEventListener("click", function(event){
     tabTask.push(new task(taskDesc,false));//On ajoute la nouvelle tache dans le tableau de stockage
     displayNewTask(tabTask[tabTask.length-1]);//On affiche le dernier élément crée avec la fonction displayTask
     registerTask(tabTask[tabTask.length-1]);
-    updateListenerDeleteBtn(); //On met ensuite à jour l'écoute des "deleteBtn" de chaque tâche
 });
 
 
@@ -50,7 +49,7 @@ function displayNewTask(task){
     }else{
         newTask.innerHTML = '<input type="checkbox" name="checkbox-'+ tabTask.indexOf(task) +'" onchange="checkTaskStatut(this)"><p>'+ task.description + '</p> <p class="deleteTask">X</p>'; //Puis on ajoute une checkbox et la description de la tache dans la div
     }
-    
+    updateListenerDeleteBtn(); //On met ensuite à jour l'écoute des "deleteBtn" de chaque tâche
     
 }
 
